@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory } from '@reach-router';
+import { useHistory } from 'react-router';
 
-const Form = (props) => {
+const Home = (props) => {
 
     const [type, setType] = useState('');
     const [id, setId] = useState('');
@@ -9,7 +9,7 @@ const Form = (props) => {
 
     const search = (e) => {
         e.preventDefault();
-        history.push(`/search/${type}/${id}`);
+        history.push(`/search/${type}/${id}`); // push to the search page
     }
 
     return (
@@ -27,3 +27,4 @@ const Form = (props) => {
     )
 };
 
+export default Home
