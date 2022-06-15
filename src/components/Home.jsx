@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
-import { navigate } from '@reach/router';
+import { useHistory } from '@reach-router';
 
-function Home() {
+const Form = (props) => {
 
-    const [resource, setResource] = useState('');
-    const [selectId, setSelectId] = useState('');
+    const [type, setType] = useState('');
+    const [id, setId] = useState('');
+    const history = useHistory();
 
-    const handleSubmit = (e) => {
+    const search = (e) => {
         e.preventDefault();
-        //search button is a redirect to people/id or planet/id
-
-        navigate('/${resource}/${selectId}');
+        history.push(`/search/${type}/${id}`);
     }
+
+    return (
+        <form onSubmit={search}>
+            <label>Search for</label>
+            <select
+                onChange={e => setType(e.target.value)} value={type}>
+                <option>People</option>
+                <option>Planets</option>
+            </select>
+            <label> id: </label>
+            <input type='number' min={1} onChange={e => setId(e.target.value)} value={id} />
+            <input type='submit' value='Search' />
+        </form>
+    )
+};
+
