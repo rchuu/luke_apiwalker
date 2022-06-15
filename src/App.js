@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {
   BrowserRouter,
-  Link,
+  // Link,
   Switch,
   Route
 } from 'react-router-dom';
@@ -15,21 +15,19 @@ function App() {
   return (
     <BrowserRouter>
       <h1>Luke ApiWalker</h1>
-      <p>
+      {/* <p>
         <Link to="/">Welcome</Link>
         {' | '}
         <Link to="/people">People</Link>
         {' | '}
         <Link to="/planet">Planet</Link>
-      </p>
+      </p> */}
+      <Home />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route path="/people/:id">
           <People />
         </Route>
-        <Route path="/planet/:id">
+        <Route path="/planets/:id">
           <Planet />
         </Route>
       </Switch>

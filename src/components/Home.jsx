@@ -3,13 +3,13 @@ import { useHistory } from 'react-router';
 
 const Home = (props) => {
 
-    const [type, setType] = useState('');
-    const [id, setId] = useState('');
+    const [type, setType] = useState('people'); // set the type to people
+    const [id, setId] = useState(1); // set the id to 1
     const history = useHistory();
 
     const search = (e) => {
         e.preventDefault();
-        history.push(`/search/${type}/${id}`); // push to the search page
+        history.push(`/${type}/${id}`); // push to the search page
     }
 
     return (
